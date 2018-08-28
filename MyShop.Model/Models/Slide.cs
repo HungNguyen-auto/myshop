@@ -9,14 +9,21 @@ namespace MyShop.Model.Models
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ID { set; get; }
-        [Required]
-        public string Name { set; get; }
-        public string Description { set; get; }
-        public string Image { set; get; }
-        [Required]
-        public string URL { set; get; }
-        public int DisplayOrder { set; get; }
-        public bool Status { set; get; }
 
+        [Required]
+        [MaxLength(256)]
+        public string Name { set; get; }
+
+        [MaxLength(256)]
+        public string Description { set; get; }
+
+        [MaxLength(256)]
+        public string Image { set; get; }
+
+        [MaxLength(256)]
+        public string URL { set; get; }
+
+        public int? DisplayOrder { set; get; }
+        public bool Status { set; get; }
     }
 }

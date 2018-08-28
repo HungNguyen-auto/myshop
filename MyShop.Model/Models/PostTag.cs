@@ -7,10 +7,11 @@ namespace MyShop.Model.Models
     public class PostTag
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int PostID { set; get; }
 
         [Key]
+        [MaxLength(50)]
+        [Column(TypeName = "varchar")]
         public string TagID { set; get; }
 
         [ForeignKey("PostID")]

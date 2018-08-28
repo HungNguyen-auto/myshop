@@ -8,13 +8,12 @@ namespace MyShop.Model.Models
     public class VisitorStatistic
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int ID { set; get; }
+        public Guid ID { set; get; }
 
         [Required]
         public DateTime VisitedDate { set; get; }
 
-        [Required]
+        [MaxLength(50)]
         public string IPAddress { set; get; }
     }
 }
