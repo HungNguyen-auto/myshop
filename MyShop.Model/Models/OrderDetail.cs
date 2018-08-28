@@ -15,7 +15,10 @@ namespace MyShop.Model.Models
         [Required]
         public int Quantity { set; get; }
 
+        [ForeignKey("OrderID")]
         public virtual Order Order { set; get; }
+
+        [ForeignKey("ProductID")]
         public virtual Product Product { set; get; }
     }
 }

@@ -1,17 +1,20 @@
-﻿using MyShop.Model.Abstract;
+﻿using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MyShop.Model.Models
 {
-    [Table("Pages")]
-    public class Page : Auditable
+    [Table("VisitorStatistics")]
+    public class VisitorStatistic
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ID { set; get; }
 
-        public string Name { set; get; }
-        public string Content { set; get; }
+        [Required]
+        public DateTime VisitedDate { set; get; }
+
+        [Required]
+        public string IPAddress { set; get; }
     }
 }
