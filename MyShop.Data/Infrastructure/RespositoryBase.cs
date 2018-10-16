@@ -6,7 +6,7 @@ using System.Linq.Expressions;
 
 namespace MyShop.Data.Infrastructure
 {
-    public abstract class RepositoryBase<T> where T : class
+    public abstract class RepositoryBase<T> : IRepository<T> where T : class
     {
         #region Properties
 
@@ -28,6 +28,7 @@ namespace MyShop.Data.Infrastructure
 
         protected RepositoryBase(IDbFactory dbFactory)
         {
+
             DbFactory = dbFactory;
             dbSet = DbContext.Set<T>();
         }
