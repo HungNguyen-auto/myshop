@@ -3,6 +3,7 @@ using System.Data.Entity;
 
 namespace MyShop.Data
 {
+    //trai tim cua codefirst
     public class MyShopDbContext : DbContext
     {
         public MyShopDbContext() : base("MyShopConnection")

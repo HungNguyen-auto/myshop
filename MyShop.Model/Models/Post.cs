@@ -1,4 +1,5 @@
 ﻿using MyShop.Model.Abstract;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -21,7 +22,7 @@ namespace MyShop.Model.Models
         public string Alias { set; get; }
 
         [Required]
-        public string CategoryID { set; get; }
+        public int CategoryID { set; get; }
 
         [MaxLength(256)]
         public string Image { set; get; }
@@ -37,6 +38,6 @@ namespace MyShop.Model.Models
         [ForeignKey("CategoryID")]
         public virtual PostCategory PostCategory { set; get; }
 
-        //public virtual IEnumerable<PostTag> PostTags { set; get; }
+        public virtual IEnumerable<PostTag> PostTags { set; get; }
     }
 }

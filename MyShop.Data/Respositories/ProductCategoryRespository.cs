@@ -5,11 +5,12 @@ using System.Linq;
 
 namespace MyShop.Data.Respositories
 {
+    //định nghĩa các phương thức cần viết thêm không có trong RepositoryBase
     public interface IProductCategoryRepository
     {
         IEnumerable<ProductCategory> GetByAlias(string alias);
     }
-
+    //đa kế thừa
     public class ProductCategoryRepository : RepositoryBase<ProductCategory>, IProductCategoryRepository
     {
         public ProductCategoryRepository(IDbFactory dbFactory)

@@ -7,11 +7,12 @@ namespace MyShop.Model.Models
     public class PostTag
     {
         [Key]
+        [Column(Order = 1)]
         public int PostID { set; get; }
 
         [Key]
+        [Column(Order = 2, TypeName = "varchar")]
         [MaxLength(50)]
-        [Column(TypeName = "varchar")]
         public string TagID { set; get; }
 
         [ForeignKey("PostID")]

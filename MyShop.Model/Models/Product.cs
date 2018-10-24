@@ -1,8 +1,6 @@
 ﻿using MyShop.Model.Abstract;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Xml.Linq;
 
 namespace MyShop.Model.Models
 {
@@ -15,6 +13,7 @@ namespace MyShop.Model.Models
 
         [Required]
         [MaxLength(256)]
+        [Column(TypeName = "varchar")]
         public string Name { set; get; }
 
         [Required]
@@ -22,12 +21,14 @@ namespace MyShop.Model.Models
         public string Alias { set; get; }
 
         [Required]
-        public string CategoryID { set; get; }
+        public int CategoryID { set; get; }
 
         [MaxLength(256)]
         public string Image { set; get; }
 
-        public XElement MoreImages { set; get; }
+        [Column(TypeName = "xml")]
+        public string MoreImages { set; get; }
+
         public decimal Price { set; get; }
         public decimal? PromotionPrice { set; get; }
 

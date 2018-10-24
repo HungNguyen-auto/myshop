@@ -46,8 +46,9 @@ namespace MyShop.Data.Infrastructure
             dataContext.Entry(entity).State = EntityState.Modified;
         }
 
-        public virtual void Delete(T entity)
+        public virtual void Delete(int id)
         {
+            var entity = dbSet.Find(id);
             dbSet.Remove(entity);
         }
 
@@ -105,7 +106,7 @@ namespace MyShop.Data.Infrastructure
 
             return dataContext.Set<T>().Where<T>(predicate).AsQueryable<T>();
         }
-
+        //phân trang
         public virtual IQueryable<T> GetMultiPaging(Expression<Func<T, bool>> predicate, out int total, int index = 0, int size = 20, string[] includes = null)
         {
             int skipCount = index * size;
@@ -132,6 +133,11 @@ namespace MyShop.Data.Infrastructure
         public bool CheckContains(Expression<Func<T, bool>> predicate)
         {
             return dataContext.Set<T>().Count<T>(predicate) > 0;
+        }
+
+        public void Delete(T entity)
+        {
+            throw new NotImplementedException();
         }
 
         #endregion Implementation
